@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <style>
+        * {
+    margin: 0;
+}
+.body{
+    border: 2;
+    background-color:#302e2e;
+    margin: 0;
+    font-family: 'poppins', sans-serif;
+    display: flex;
+    align-items: center;
+}
+/*top navigation start*/
+.main_nav {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    background-color: #302e2e;
+    z-index: 100;
+    box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
+    width: 100%;
+}
+/*left nav start */
+.left_nav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_input {
+    background-color: lightgray;
+    width: 150px;
+    height: 20px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.search_input input {
+    background-color: transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+}
+/*left nav end */
+
+
+/*center nav start*/
+.center_nav {
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+}
+
+.center_controls img {
+    height: 30px;
+}
+
+.center_controls {
+    align-items: center;
+    display: flex;
+    padding: 1px 15px;
+}
+
+.center_controls.active {
+    border-bottom: 5px solid #2e81f4;
+}
+
+.center_controls:hover {
+    background: gray;
+    border-bottom: none;
+    border-radius: 10px;
+    align-items: center;
+    padding: 0 20px;
+}
+/*center nav end*/
+
+/*right nav start*/
+.right_nav {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.right_profile {
+    align-items: center;
+    display: flex;
+    font-size: small;
+    color: white;
+    padding: 0px 1px;
+}
+.right_profile img{
+border-radius: 50%;
+height: 30px;
+}
+
+.right_profile:hover {
+    background:lightgray;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0px 5px;
+}
+
+.right_profile h4 {
+    margin-left: 10px;
+}
+
+.right_nav img {
+    margin: 0 10px;
+    cursor: pointer;
+    
+}
+
+.invert{
+    filter: invert(100%);
+    width: 20px;
+    height: 25px;
+}
+
+.invert:hover {
+    background: gray;
+    border-bottom: none;
+    border-radius: 100%;
+    align-items: center;
+    padding: 5px 5px;
+}
+
+.u {
+    background: #575757;
+    padding: 1px 1px;
+    display: inline-block;
+    color: white;
+    
+}
+
+.u:hover{
+    background-color: black;
+    padding: 2px 2px;
+    color: white;
+    border-radius: 100%;
+}
+.dropdown-content {
+  position: absolute;
+  width: 80%;
+  max-width: 350px;
+  background-color:#a1a4a9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  top: 100%;
+  right: 5%;
+  position: absolute;
+	transform: scale(0);
+	transform-origin: top;
+	transition: 0.3s;
+}
+.dropdown {
+  position: relative;
+}
+.click {
+  background-color: transparent;
+}
+.click,.dropdown-content{
+font-size: 1.2em;
+font-family: futura Mb Bt;
+border: none;
+outline: none;
+color: #fff;
+transition: 0.3s;
+}
+
+.newlist {
+	transform: scale(1.0);
+}
+.share_upSide a{
+  font-size: 12px;
+  color:#b7babe;
+  text-decoration: none;
+}
+.setting-menu-inner{
+  padding: 20px;
+
+}
+.setting-links{
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+}
+.setting-links, .settings-icon{
+  width: 38px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+.setting-links a{
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #b7babe;
+}
+.click {
+    background-color: transparent;
+}
+.click,.dropdown-content{
+	font-size: 1.2em;
+	font-family: futura Mb Bt;
+	border: none;
+	outline: none;
+	color: #fff;
+	transition: 0.3s;
+}
+.dropdown-content{
+	position: absolute;
+	transform: scale(0);
+	transform-origin: top;
+	transition: 0.3s;
+	right:0;
+    background: #302e2e;
+    width: 280px;
+    color: white;
+    align-items: center;
+
+}
+.dropdown-content ul{
+    align-items: center;
+    
+}
+.newlist {
+	transform: scale(1.0);
+}
+
+/*right nav end*/
+/*top navigation end*/
+
+
+/*main content start*/
+.content {
+    display: flex;
+    margin-top: 3%;
+  }
+/*content left start*/
+.left_control{
+    list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	position: fixed;
+	height: 100%;
+    background-color: #242526;
+}
+.sidecontrolrow {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.sidecontrolrow:hover {
+    background-color: lightgray;
+    border-radius: 10px;
+}
+.sidecontrolrow h4 {
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.sidecontrolrow img{
+    font-size: xx-large;
+    width: 30px;
+}
+/*content left end*/
+
+/*content center start*/
+
+.center_control {
+    margin-left:20%;
+    
+	padding:10px 10px; 
+	background-color:#302e2e;
+    width: 59%;
+    
+}
+/*story content start*/
+
+.imgnalang img{
+  width: 30px;
+  border-radius: 50%;
+  
+}
+.story {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 120px;
+    height: 200px;
+    box-shadow: 0px 5px 17px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 100ms ease-in;
+}
+
+.story:hover {
+    transform: scale(1.07);
+}
+
+.story_avatar {
+    margin-left: 10px;
+}
+.story h4 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+.stories {
+    padding: 10px 0;
+    display: flex;
+    width: 100%;
+    align-content: center;
+    
+}
+/*story content end*/
+/*updlode content start*/
+
+.media_container {
+    padding: 5px 20px;
+  }
+  
+  .share {
+    background-color: #242526;
+    border-radius: 10px;
+    padding: 15px;
+  }
+  
+  .share_upSide {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .share_upSide img {
+    margin-right: 7px;
+    width: 38px;
+    border-radius: 50%;
+  }
+  
+  .share_upSide input {
+    flex: 1;
+    padding: 12px 0 12px 12px;
+    background: #3a3b3c;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: #a8abaf;
+  }
+  
+  .share_upSide input:focus {
+    outline: none;
+  }
+  
+  .media_container hr {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-width: 1px;
+  }
+  
+  .share_downSide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    height: 40px;
+  }
+  
+  .share_downSide_link {
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .share_downSide_link:hover {
+    background: #3a3b3c;
+    border-radius: 10px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .share_downSide_link i {
+    font-size: 25px;
+    margin-right: 5px;
+  }
+  
+  .share_downSide_link span {
+    color: #b7babe;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  
+  .live-video-icon {
+    color: #f23e5c;
+  }
+  
+  .photo-video-icon {
+    color: #58c472;
+  }
+  
+  .feeling-icon {
+    color: #f8c03e;
+  }
+  
+  .news_feed {
+    background-color: #242526;
+    border-radius: 10px;
+    margin: 15px 0;
+  }
+  
+  .news_feed_title {
+    padding: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+  
+  .news_feed_title img {
+    width: 40px;
+    margin-right: 7px;
+  }
+  
+  .news_feed_title_content {
+    text-align: left;
+  }
+  
+  .news_feed_title_content p {
+    color: #e4e6eb;
+    font-weight: 500;
+  }
+  
+  .news_feed_title_content span {
+    color: #b7babe;
+    font-size: 12px;
+  }
+  
+  .news_feed_description {
+    min-height: 400px;
+  }
+  
+  .news_feed_subtitle {
+    padding: 0 15px;
+    color: #e4e6eb;
+    font-size: 15px;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .news_feed_description img {
+    object-fit: cover;
+    width: 100%;
+    height: 400px;
+  }
+  
+  .news_feed_description_title {
+    margin-top: -5px;
+    padding: 10px 15px;
+    background-color: #3a3b3c;
+    text-align: left;
+  }
+  
+  .news_feed_description_title span {
+    color: #b7babe;
+    font-size: 13px;
+  }
+  
+  .news_feed_description_title p {
+    font-weight: 500;
+    color: #e4e6eb;
+    font-size: 15px;
+  }
+  
+  .likes_area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+  
+  .emojis {
+    display: flex;
+    align-items: center;
+  }
+  
+  .emojis img {
+    width: 25px;
+    margin-right: -3px;
+  }
+  
+  .emojis span {
+    color: #b7babe;
+    margin-left: 10px;
+  }
+  
+  .comment_counts {
+    color: #b7babe;
+  }
+  
+  .divider {
+    padding: 0 15px 0 15px;
+  }
+  
+  .likes_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    height: 35px;
+  }
+  
+  .likes_buttons_links {
+    width: 33.3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b4b7bb;
+    font-weight: 500;
+  }
+  
+  .likes_buttons_links:hover {
+    background: #3a3b3c;
+    border-radius: 5px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .likes_buttons_links i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+/*updlode content end*/
+/*content center end*/
+
+
+/*content right start*/
+
+.imglang{
+  align-items: center;
+  display: flex;
+  font-size: small;
+  color: white;
+  padding: 0px 1px;
+}
+.imglang img{
+  width: 40px;
+  height: 40px;
+  border-radius: 10%;
+}
+
+.right_control{
+    list-style: none;
+	padding: 0;
+	width: 20%;
+	position: fixed;
+    margin-left: 80%;
+    background-color: #242526;
+    height: 100%;
+}
+.right_control img{
+  height: 40px;
+  border-radius: 10px;
+}
+
+.content_right_inner {
+  width: 100%;
+  padding-right: 10px;
+
+}
+
+.your_pages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  color: #a1a4a9;
+}
+
+.your_pages h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.content_right ul {
+  margin: 0;
+  list-style: none;
+  padding-left: 0;
+}
+
+.content_right ul li {
+  margin-bottom: 15px;
+}
+
+.content_right ul li a {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.content_right ul li a img {
+  width: 37px;
+  margin-right: 10px;
+  border-radius: 100%;
+}
+
+.content_right_small_text {
+  font-size: 13px;
+  color: #b0b2b6;
+  padding-top: 0;
+}
+
+.content_right_small_text a {
+  padding-left: 20px;
+}
+
+.content_right_small_text a i {
+  margin-right: 15px;
+}
+
+.content_right_divider {
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.08);
+  border-width: 1px;
+}
+
+.birthdays {
+  margin: 15px 0;
+  color: #a1a4a9;
+}
+
+.birthdays h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  color: #a1a4a9;
+}
+
+.contacts h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.contacts i {
+  margin-left: 15px;
+}
+/*content right end*/
+
+
+/*main content end*/
+
+    </style>
+</head>
+<body>
+    <!--top navigation start -->
+    <div class="main_nav">
+        <!--fb icon searchbox start-->
+        <div class="left_nav">
+            <img src="img/facebook.ico" alt="" />
+            <div class="search_input">
+                <img src="img/magnify.png" alt="">
+                <input type="text" placeholder="Search Facebook">
+            </div>
+        </div>
+        <!--fb icon searchbox end-->
+
+
+        <!--center navigation start-->
+      <div class="center_nav">
+        <div class="center_controls active"><img src="img/home.png" class="invert"></div>
+        <div class="center_controls"><img src="img/page.png" class="invert"></div>
+        <div class="center_controls"><img src="img/video.png" class="invert"></div>
+        <div class="center_controls"><img src="img/groups.png"class="invert"></div>
+        <div class="center_controls"><img src="img/gaming.png" class="invert"></div>
+    </div>
+    <!--center navigation end-->
+
+
+    <!--right navigation/profile start-->
+    <div class="right_nav">
+        <div class="right_profile">
+            <img class="profile" src="img/profile.jpg" alt="">
+            <h4>Errol John</h4>
+        </div>
+        <u><a href="#null"><img src="img/boxmenu.png" class="invert"></a></u>
+        <u><a href="#null"><img src="img/messenger.png"class="invert"></a></u>
+        <u><a href="#null"><img src="img/bell.png" class="invert"></a></u>
+        <u class="click"><a href="#null"class="dropdown"><img src="img/arrowdown.png"class="invert"></a></u>
+        <!--dropdown start-->
+        <div class="dropdown-content">
+            <div class="setting_menu">
+                <div class="setting-menu-inner">
+                    <div class="share_upSide">
+                        <img src="img/profile.jpg" alt="profile" />
+                        <h4>Errol John<br>
+                        <a href="#">see your profile</a></h4>
+                    </div>
+                    <div class="content_right_divider"></div>
+                    <div class="share_upSide">
+                        <img src="img/feedback.png" class="invert" alt="profile" />
+                        <h4>Give Feedback<br>
+                        <a href="#">Help us to improve coding sir</a></h4>
+                    </div>
+                    <div class="content_right_divider"></div>
+                   
+                    <div class="setting-links">
+                        <img src="img/settings.png" class="invert" class="settings-icon">
+                        <a href="#">Settings&Privacy<img src="img/arrowright.jpg"width="10px"></a>
+                    </div>
+                   
+                    <div class="setting-links">
+                        <img src="img/help.png" class="invert" class="settings-icon">
+                        <a href="#">Help&Support<img src="img/arrowright.jpg" width="10px"></a>
+                    </div>
+                    
+                    <div class="setting-links">
+                        <img src="img/display.png"class="invert" class="settings-icon">
+                        <a href="#">Display&Accessibility<img src="img/arrowright.jpg" width="10px"></a>
+                    </div>
+                    
+                    <div class="setting-links">
+                        <img src="img/logout.png"class="invert" class="settings-icon">
+                        <a href="#">Logout<img src="img/arrowright.jpg" width="10px"></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!--dropdown end-->
+    </div>
+    <!--right navigation end-->
+    </div>
+    <!--top navigation end-->
+
+
+
+    <!--main content start-->
+    <div class="content">
+        <!--content left start-->
+        
+        <div class="left_control">
+            <div class="sidecontrolrow">
+                <div class="right_profile">
+                <img src="img/profile.jpg">
+                <h4>Errol John</h4>
+            </div>
+            </div>
+            <div class="sidecontrolrow">
+                <img src="img/friends1.png">
+                <h4>Friends</h4>
+            </div>
+            <div class="sidecontrolrow">
+                <img src="img/groups1.png">
+                <h4>Groups</h4>
+            </div>
+            <div class="sidecontrolrow">
+                <img src="img/saved.png">
+                <h4>Saved</h4>
+            </div>
+            <div class="sidecontrolrow">
+                <img src="img/marketplace.png">
+                <h4>Marketplace</h4>
+            </div>
+            <div class="sidecontrolrow">
+                <img src="img/arrowdown.png">
+                <h4>See more</h4>
+            </div>
+            <div class="content_right_divider"></div>
+            <div class="content_right_divider"></div>
+
+            <div class="imglang">
+                <img src="img/phartist.jpg" alt="">
+                <h4>PH artist</h4>
+            </div>
+            <br>
+            <div class="imglang">
+                <img src="img/hachi.jpg" alt="">
+                <h4>Hachi Buy and sell</h4>
+            </div>
+        </div>
+        <!--content left end-->
+
+
+        <!--center content start-->
+        <div class="center_control">
+            <!--story content start-->
+            <div class="stories">
+                <!--stories 1 start-->
+                <div style="background-image: url('img/story1.png');" class="story">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile.jpg">
+                   </div>
+                </div>
+                <!--stories 1 end-->
+
+                <!--stories 2 start-->
+                <div style="background-image: url('img/story2.png');" class="story">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile1.jpg">
+                   </div>
+                </div>
+                <!--stories 2 end-->
+
+                <!--stories 3 start-->
+                <div style="background-image: url('img/story3.png');" class="story">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile2.jpg">
+                   </div>
+                </div>
+                <!--stories 3 end-->
+
+                <!--stories 4 start-->
+                <div style="background-image: url('img/story4.png');" class="story">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile3.jpg">
+                   </div>
+                </div>
+                <!--stories 4 end-->
+
+                <!--stories 5 start-->
+                <div style="background-image: url('img/story5.png');" class="story">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile4.jpg">
+                   </div>
+                </div>
+                <!--stories 5 end-->
+
+                <!--stories 6 start-->
+                <div style="background-image: url('img/story6.png');" class="story">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile5.jpg">
+                   </div>
+                </div>
+                <!--stories 6 end-->
+            </div>
+            <!--stories content end-->
+
+
+
+            <!--live video phto feeling start-->
+            <div class="share">
+                <div class="share_upSide">
+                  <img src="img/profile.jpg" alt="profile" />
+                  <input type="text" placeholder="What's on your mind, Errol John?" />
+                </div>
+                <hr />
+                <div class="share_downSide">
+                  <div class="share_downSide_link">
+                    <img src="img/live-video.png" alt="">
+                    <span>Live Video</span>
+                  </div>
+                  <div class="share_downSide_link">
+                    <img src="img/photo.png" alt="">
+                    <span>Photo/Video</span>
+                  </div>
+                  <div class="share_downSide_link">
+                    <img src="img/feeling.png" alt="">
+                    <span>Feeling/Activity</span>
+                  </div>
+                </div>
+              </div>
+            <!--live video phto feeling end-->
+
+
+            <!--content uploads start-->
+            <div class="news_feed">
+                <div class="news_feed_title">
+                    <div class="imgnalang">
+                        <img class="story_avatar" src="img/profile.jpg">
+                     </div>
+                    <div class="news_feed_title_content">
+                      <p>Errol John</p>
+                      <span>12h . <i class="fas fa-globe-americas"></i></span>
+                    </div>
+                  </div>
+
+                  <div class="news_feed_description">
+                    <p class="news_feed_subtitle">
+                      alright season 2 ng the rising sheild hero umay na naman abang abang tayo<br>
+                      official na i lalabas sa 2022 lapit na 
+                    </p>
+                    <img src="img/up1.jpg" alt="sunflower" />
+                    <div class="news_feed_description_title">
+                      <span>YOUTUBE / Anime updates</span>
+                      <p>
+                        The Rising of the Shield Hero is an anime series adapted from the light novels of the same title written by Aneko Yusagi. At 2019's Crunchyroll Expo, it was announced that the series will receive a second and third season.[1] At 2020's virtual Crunchyroll Expo, it was announced that the second season will premiere in 2021. Masato Jinbo will replace Takao Abo as director, and the rest of the staff members will reprise their roles, with production by Kinema Citrus and DR Movie.[2] During "Kadokawa Light Novel Expo 2020", it was revealed that the second season will premiere in October 2021,[3] but it was later delayed to April 2022.[4]
+                      </p>
+                    </div>
+                  </div>
+      
+                  <div class="likes_area">
+                    <div class="emojis">
+                        <img src="img/happyface.jpg" alt="like" />
+                        <img src="img/emoji_surprised.png" alt="surprised" />
+                        <img src="img/emoji_like.png" alt="angry" />
+                        <span>Clydin Pardillo and 900k others</span>
+                      </div>
+                    <div class="comment_counts">
+                      <span>700k Comments</span>
+                      <span>600k Shares</span>
+                    </div>
+                  </div>
+      
+                  <div class="divider"><hr /></div>
+                  <div class="likes_buttons">
+                    <div class="likes_buttons_links">
+                      <i class="far fa-thumbs-up"></i>
+                      <span>Like</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="far fa-comment-alt"></i>
+                      <span>Comment</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="fas fa-share"></i>
+                      <span>Share</span>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="news_feed">
+                <div class="news_feed_title">
+                    <div class="imgnalang">
+                        <img class="story_avatar" src="img/profile3.jpg">
+                     </div>
+                    <div class="news_feed_title_content">
+                      <p>lyn pardillo</p>
+                      <span>15h . <i class="fas fa-globe-americas"></i></span>
+                    </div>
+                  </div>
+
+                  <div class="news_feed_description">
+                    <p class="news_feed_subtitle">
+                       <a href="#null">@Errol John</a> Check this out Goblin slayer will air at 2022 loking forward on wahtching it together again.
+                    </p>
+                    <img src="img/up2.jpg" />
+                    <div class="news_feed_description_title">
+                      <span>YOUTUBE / Anime updates</span>
+                      <p>
+                        Goblin Slayer Season 2, earlier this year, found the note of confirmation, but there are more questions in the lineup which follow!
+                        There have been flying rumors about the premiere of the anime series and also, fans have been on the edge to find out about the plot.<br>
+                        Starting with the dates, on January 31st, 2021, during the 15th-anniversary celebration of the anime, Goblin Slayer Season 2’s announcement was made. However, we are pumped to find the primary details.
+                      </p>
+                    </div>
+                  </div>
+      
+                  <div class="likes_area">
+                    <div class="emojis">
+                        <img src="img/happyface.jpg" alt="like" />
+                        <img src="img/emoji_surprised.png" alt="surprised" />
+                        <img src="img/emoji_like.png" alt="angry" />
+                        <span>Clydin Pardillo and 800k others</span>
+                      </div>
+                    <div class="comment_counts">
+                      <span>500k Comments</span>
+                      <span>300k Shares</span>
+                    </div>
+                  </div>
+      
+                  <div class="divider"><hr /></div>
+                  <div class="likes_buttons">
+                    <div class="likes_buttons_links">
+                      <i class="far fa-thumbs-up"></i>
+                      <span>Like</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="far fa-comment-alt"></i>
+                      <span>Comment</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="fas fa-share"></i>
+                      <span>Share</span>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="news_feed">
+                <div class="news_feed_title">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile5.jpg">
+                   </div>
+                    <div class="news_feed_title_content">
+                      <p>Clydin Pardillo</p>
+                      <span>16h . <i class="fas fa-globe-americas"></i></span>
+                    </div>
+                  </div>
+
+                  <div class="news_feed_description">
+                    <p class="news_feed_subtitle">
+                      Guys nabitin ba kayo sa season 1 ng arifureta?  <br>
+                      may update tayo about sa season 2 pero d padaw  confirm kung anung date mag air pero sure na sa 2022 na daw ito ilalabas
+                    </p>
+                    <img src="img/up3.jpg" alt="up" />
+                    <div class="news_feed_description_title">
+                      <span>YOUTUBE / Anime updates</span>
+                      <p>
+                        The first season of "Arifureta" aired in 2019, covering about the first four volumes of the manga it's based on. That leaves six more volumes of possible source material that could be adapted going forward. Here's everything we know about a possible second season of "Arifureta."<br>
+                        According to Anime Collective, "Arifureta: From Commonplace to World's Strongest" Season 2 will debut on Japanese TV during the Winter 2022 anime season. It doesn't yet have an exact premiere date, but it's currently listed as January 2022.
+                      </p>
+                    </div>
+                  </div>
+      
+                  <div class="likes_area">
+                    <div class="emojis">
+                        <img src="img/happyface.jpg" alt="like" />
+                        <img src="img/emoji_surprised.png" alt="surprised" />
+                        <img src="img/emoji_like.png" alt="angry" />
+                        <span>lyn Pardillo and 100k others</span>
+                      </div>
+                    <div class="comment_counts">
+                      <span>200k Comments</span>
+                      <span>100k Shares</span>
+                    </div>
+                  </div>
+      
+                  <div class="divider"><hr /></div>
+                  <div class="likes_buttons">
+                    <div class="likes_buttons_links">
+                      <i class="far fa-thumbs-up"></i>
+                      <span>Like</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="far fa-comment-alt"></i>
+                      <span>Comment</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="fas fa-share"></i>
+                      <span>Share</span>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="news_feed">
+                <div class="news_feed_title">
+                    <div class="imgnalang">
+                      <img class="story_avatar" src="img/profile.jpg">
+                   </div>
+                    <div class="news_feed_title_content">
+                      <p>Errol John</p>
+                      <span>17h . <i class="fas fa-globe-americas"></i></span>
+                    </div>
+                  </div>
+
+                  <div class="news_feed_description">
+                    <p class="news_feed_subtitle">
+                      Bafuri guys hindi to pang babae grabe ang op ng bida recomend ko po sayo sir kung na nonood ka ng anime.
+                    </p>
+                    <img src="img/up4.jpg" alt="up" />
+                    <div class="news_feed_description_title">
+                      <span>YOUTUBE / Anime updates</span>
+                      <p>
+                        The BOFURI Season 2 anime will have Maple (Kaede Honjo) and Sally (Risa Shiramine) taking on large-scale monsters, game bugs, and new friendships.
+
+                        The second season has already been confirmed to be in production, but how long will it take for BOFURI: I Don’t Want to Get Hurt, so I’ll Max Out My Defense Season 2 to come out?
+                        
+                        On January 9, 2021, the first anniversary of the anime’s TV broadcast was celebrated by announcing that the BOFURI Season 2 release date will be in 2022.
+                      </p>
+                    </div>
+                  </div>
+      
+                  <div class="likes_area">
+                    <div class="emojis">
+                      <img src="img/happyface.jpg" alt="like" />
+                      <img src="img/emoji_surprised.png" alt="surprised" />
+                      <img src="img/emoji_like.png" alt="angry" />
+                      <span>Clydin Pardillo and 100k others</span>
+                    </div>
+                    <div class="comment_counts">
+                      <span>100k Comments</span>
+                      <span>2k Shares</span>
+                    </div>
+                  </div>
+      
+                  <div class="divider"><hr /></div>
+                  <div class="likes_buttons">
+                    <div class="likes_buttons_links">
+                      <i class="far fa-thumbs-up"></i>
+                      <span>Like</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="far fa-comment-alt"></i>
+                      <span>Comment</span>
+                    </div>
+                    <div class="likes_buttons_links">
+                      <i class="fas fa-share"></i>
+                      <span>Share</span>
+                    </div>
+                  </div>
+            </div>
+            <!--content uploads end-->
+
+
+        </div>
+        <!--center content end-->
+
+        <!--right content start-->
+        <div class="right_control">
+            <div class="content_right_inner">
+                <div class="your_pages">
+                    <h3>Sponsored</h3>
+                    <i class="fas fa-ellipsis-h"></i>
+                  </div>
+                  <div class="content_right_divider"></div>
+                  <div class="content_right_divider"></div>
+                  
+
+                <div class="your_pages">
+                  <h3>Your Pages</h3>
+                  <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <div class="imglang">
+                    <img src="img/anime.png" alt="">
+                    <h4>anime updates</h4>
+                </div>
+                <div class="content_right_divider"></div>
+
+                <div class="content_right_divider"></div>
+                <div class="contacts">
+                  <h3>Contacts</h3>
+                  <div class="contact_icons">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-ellipsis-h"></i>
+                  </div>
+                </div>
+                <div class="imglang">
+                    <img src="img/profile3.jpg" alt="">
+                    <h4>Lyn Pardillo</h4>
+                </div>
+                <br>
+                <div class="imglang">
+                    <img src="img/profile2.jpg" alt="">
+                    <h4>Jessen Fox</h4>
+                </div>
+                <br>
+                <div class="imglang">
+                    <img src="img/profile1.jpg" alt="">
+                    <h4>Fhinix otaku</h4>
+                </div>
+                <br>
+                <div class="imglang">
+                    <img src="img/profile4.jpg" alt="">
+                    <h4>unknown092003</h4>
+                </div>
+                <br>
+                <div class="imglang">
+                    <img src="img/profile5.jpg" alt="">
+                    <h4>Clydin Pardillo</h4>
+                </div>
+              </div>
+        </div>
+        <!--right content end-->
+
+
+    </div>
+    <!--main content end-->
+
+    <!--sorry sir nag javascrip ako aya kasi mag steady yung dropdown ko na uubusan ako ng brain cell kala ko pwede yung css at html need pala java para mag stay -->
+    <script>
+        let click = document.querySelector('.click');
+        let list = document.querySelector('.dropdown-content');
+        click.addEventListener("click",()=>{
+            list.classList.toggle('newlist');
+        });
+    </script>
+</body>
+</html>
